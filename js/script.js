@@ -1,9 +1,35 @@
-const container = document.querySelector(".container");
-container.setAttribute('style', 'padding: 0; margin: 0; display:flex; box-sizing: border-box; width: 200px; height: 200px; flex-wrap: wrap;');
+const getWidth = function(){
 
-for (let i = 0; i < 256; i++){
-    const colDiv = document.createElement("div");
-    colDiv.classList.toggle("column");
-    colDiv.setAttribute('style', 'padding: 0; margin: 0; display: flex; box-sizing: border-box; border: 1px solid black; width: 12px; height: 12px;');
-    container.appendChild(colDiv);
 }
+
+const getHeight = function(){
+
+}
+
+const enableDrawing = function(){
+    const squareDivs = document.querySelectorAll(".square");
+    squareDivs.forEach(square => square.addEventListener('mouseover', e => {
+        square.style.backgroundColor = 'black';
+    }));
+}
+
+const makeGrid = function(width=32, height=32){
+    const container = document.querySelector(".container");
+    let size = width * height;
+    let boxWidth = container.clientWidth / width;
+    let boxHeight = container.clientHeight / height;
+
+    for (let i = 0; i < size; i++){
+        const squareDiv = document.createElement('div');
+        squareDiv.classList.toggle('square');
+        squareDiv.setAttribute('style', `width: ${boxWidth}px; height: ${boxHeight}px;`);
+        container.appendChild(squareDiv);
+    }
+
+    enableDrawing();
+}
+
+window.addEventListener('load', function() {
+    makeGrid();
+})
+
