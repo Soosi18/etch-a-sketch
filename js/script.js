@@ -1,15 +1,23 @@
 const getWidth = function(){
-    let width = parseInt(prompt("Enter new width of sketch-grid (between 1-100):"));
+    let width = prompt("Enter new width of sketch-grid (between 1-100):");
+    if (width === null) return width;
+    width = parseInt(width);
     while(!Number.isInteger(width) || (width < 1 || width > 100)){
-        width = parseInt(prompt("Error! Plese enter new width of sketch-grid (between 1-100):"));
+        width = prompt("Error! Please enter new width of sketch-grid (between 1-100):");
+        if (width === null) return width;
+        width = parseInt(width);
     }
     return width;
 }
 
 const getHeight = function(){
-    let height = parseInt(prompt("Enter new height of sketch-grid (between 1-100):"));
+    let height = prompt("Enter new height of sketch-grid (between 1-100):");
+    if (height === null) return height;
+    height = parseInt(height);
     while(!Number.isInteger(height) || (height < 1 || height > 100)){
-        height = parseInt(prompt("Error! Plese enter new height of sketch-grid (between 1-100):"));
+        height = prompt("Error! Please enter new height of sketch-grid (between 1-100):");
+        if (height === null) return height;
+        height = parseInt(height);
     }
     return height;
 }
@@ -47,7 +55,15 @@ const makeGrid = function(width=32, height=32){
 
 const resizeGrid = function(){
     let width = getWidth();
+    if (width === null){
+        alert("Size Unchanged!");
+        return;
+    }
     let height = getHeight();
+    if (height === null){
+        alert("Size Unchanged!");
+        return;
+    }
     makeGrid(width, height);
     enableDrawing();
 }
@@ -78,6 +94,7 @@ const enableCustomization = function(){
 }
 
 window.addEventListener('load', () => {
+    console.log(parseInt(null));
     makeGrid();
     enableDrawing();
     enableCustomization();
