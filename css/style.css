@@ -20,7 +20,6 @@ body {
 }
 
 .square {
-    border: 1px solid black;
     box-sizing: border-box;
     display: flex;
 }
