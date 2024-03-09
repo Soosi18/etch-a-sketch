@@ -9,6 +9,15 @@ body {
     justify-content: center;
     display: flex;
     flex-direction: column;
+    margin-top: 50px;
+    gap: 25px;
+    font-family: 'Brush Script MT', cursive;
+    background: rgb(0,212,255);
+    background: linear-gradient(90deg, rgba(0,212,255,1) 0%, rgba(222,147,65,1) 51%, rgba(95,184,174,1) 79%, rgba(0,212,255,1) 100%);
+}
+
+h1 {
+    font-size: 48px;
 }
 
 .container {
@@ -29,6 +38,23 @@ body {
     display: flex;
     justify-content: space-around;
     align-items: center;
-    width: 600px;
-    height: 150px;
+    width: 500px;
+    height: 50px;
+}
+
+button, label {
+    background-color: skyblue;
+    border: 1px solid skyblue;
+    border-radius: 10px;
+    padding: 5px;
+}
+
+.clr-box{
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+#color{
+    background-color: orange;
 }
