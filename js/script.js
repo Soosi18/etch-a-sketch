@@ -22,13 +22,17 @@ const getHeight = function(){
     return height;
 }
 
+const generateRandomHex = function(){
+    let randomColor = "#000000".replace(/0/g,function(){return (~~(Math.random()*16)).toString(16);});
+    return randomColor;
+}
+
 const enableDrawing = function(color = "black"){
     let rainbowColors = ["violet", "indigo", "blue", "green", "yellow", "orange", "red"];
     const squareDivs = document.querySelectorAll(".square");
     squareDivs.forEach(square => square.addEventListener('mouseover', e => {
-        if (color === "rainbow"){
-            let random = Math.floor(Math.random() * rainbowColors.length);
-            square.style.backgroundColor = rainbowColors[random];
+        if (color === "random"){
+            square.style.backgroundColor = generateRandomHex();
         }
         else{
             square.style.backgroundColor = color;
@@ -85,7 +89,7 @@ const enableCustomization = function(){
     clearBtn.addEventListener('click', clearGrid);
     
     rainbowBtn.addEventListener('click', () => {
-        enableDrawing("rainbow");
+        enableDrawing("random");
     });
 
     colorPicker.addEventListener('input', () => {
