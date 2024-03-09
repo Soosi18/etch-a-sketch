@@ -22,4 +22,13 @@ body {
 .square {
     box-sizing: border-box;
     display: flex;
+    border: 1px solid lightgray;
+}
+
+.grid-details{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 600px;
+    height: 150px;
 }
