@@ -92,10 +92,16 @@ const enableCustomization = function(){
     let colorPicker = document.getElementById('color');
     const rainbowBtn = document.querySelector('.rainbow-btn');
     const clearBtn = document.querySelector('.clear-btn');
+    const eraserBtn = document.querySelector('.eraser-btn');
 
     sizeBtn.addEventListener('click', resizeGrid);
     clearBtn.addEventListener('click', clearGrid);
     
+    
+    eraserBtn.addEventListener('click', () => {
+        enableDrawing("white");
+    });
+
     rainbowBtn.addEventListener('click', () => {
         enableDrawing("random");
     });
