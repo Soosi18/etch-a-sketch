@@ -1,5 +1,6 @@
 let mouseDown = false;
 let currentColor = "black";
+let eraser = false;
 
 const getWidth = function(){
     let width = prompt("Enter new width of sketch-grid (between 1-100):");
@@ -99,7 +100,15 @@ const enableCustomization = function(){
     
     
     eraserBtn.addEventListener('click', () => {
-        enableDrawing("white");
+        eraser = !eraser;
+        if (eraser === true){
+            enableDrawing("white");
+        }
+        if (eraser === false){
+            let colorPicker = document.getElementById('color');
+            enableDrawing(colorPicker.value);
+        }
+        
     });
 
     rainbowBtn.addEventListener('click', () => {
