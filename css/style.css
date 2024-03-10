@@ -51,6 +51,7 @@ button, label {
     padding: 5px;
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     cursor: pointer;
+    border: 1px solid black;
 }
 
 .clr-box{
