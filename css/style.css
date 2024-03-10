@@ -1,37 +1,38 @@
 * {
     padding: 0;
     margin: 0;
+    font-family: 'Brush Script MT', cursive;
+    font-weight: bolder;
 }
 
 body {
-    height: 600px;
     align-items: center;
     justify-content: center;
     display: flex;
     flex-direction: column;
     margin-top: 50px;
     gap: 25px;
-    font-family: 'Brush Script MT', cursive;
     background: rgb(0,212,255);
     background: linear-gradient(90deg, rgba(0,212,255,1) 0%, rgba(222,147,65,1) 51%, rgba(95,184,174,1) 79%, rgba(0,212,255,1) 100%);
 }
 
 h1 {
-    font-size: 48px;
+    font-size: 40px;
 }
 
 .container {
     border: 1px solid black;
     display:flex;
-    width: 600px; 
-    height: 600px; 
+    width: 800px; 
+    height: 500px; 
     flex-wrap: wrap;
+    background-color: white;
+    box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.5);
 }
 
 .square {
     box-sizing: border-box;
     display: flex;
-    border: 1px solid lightgray;
 }
 
 .grid-details{
