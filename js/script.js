@@ -1,3 +1,5 @@
+let mouseDown = false;
+
 const getWidth = function(){
     let width = prompt("Enter new width of sketch-grid (between 1-100):");
     if (width === null) return width;
@@ -31,16 +33,19 @@ const enableDrawing = function(color = "black"){
     let rainbowColors = ["violet", "indigo", "blue", "green", "yellow", "orange", "red"];
     const squareDivs = document.querySelectorAll(".square");
     squareDivs.forEach(square => square.addEventListener('mouseover', e => {
-        if (color === "random"){
-            square.style.backgroundColor = generateRandomHex();
-        }
-        else{
-            square.style.backgroundColor = color;
+        e.preventDefault();
+        if(mouseDown){
+            if (color === "random"){
+                square.style.backgroundColor = generateRandomHex();
+            }
+            else{
+                square.style.backgroundColor = color;
+            }
         }
     }));
 }
 
-const makeGrid = function(width=32, height=32){
+const makeGrid = function(width=64, height=64){
     const container = document.querySelector(".container");
     //clear old grid
     container.innerHTML = "";
@@ -68,7 +73,7 @@ const resizeGrid = function(){
         alert("Size Unchanged!");
         return;
     }
-    makeGrid(width, height);
+    makeGrid(width, height);  
     enableDrawing();
 }
 
@@ -97,10 +102,22 @@ const enableCustomization = function(){
     });
 }
 
+const updateMouseState = function(){
+    const container = document.querySelector('.container');
+    container.addEventListener('mousedown', e => {
+        e.preventDefault();
+        mouseDown = true;
+    });
+    container.addEventListener('mouseup', e => {
+        e.preventDefault();
+        mouseDown = false;
+    });
+}
+
 window.addEventListener('load', () => {
-    console.log(parseInt(null));
     makeGrid();
     enableDrawing();
+    updateMouseState();
     enableCustomization();
 });
 
