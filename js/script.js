@@ -1,4 +1,5 @@
 let mouseDown = false;
+let currentColor = "black";
 
 const getWidth = function(){
     let width = prompt("Enter new width of sketch-grid (between 1-100):");
@@ -36,10 +37,12 @@ const enableDrawing = function(color = "black"){
         e.preventDefault();
         if(mouseDown){
             if (color === "random"){
+                currentColor = "random";
                 square.style.backgroundColor = generateRandomHex();
             }
             else{
-                square.style.backgroundColor = color;
+                currentColor = color;
+                square.style.backgroundColor = currentColor;
             }
         }
     }));
@@ -74,7 +77,7 @@ const resizeGrid = function(){
         return;
     }
     makeGrid(width, height);  
-    enableDrawing();
+    enableDrawing(currentColor);
 }
 
 const clearGrid = function(){
@@ -116,7 +119,7 @@ const updateMouseState = function(){
 
 window.addEventListener('load', () => {
     makeGrid();
-    enableDrawing();
+    enableDrawing(currentColor);
     updateMouseState();
     enableCustomization();
 });
