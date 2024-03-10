@@ -88,8 +88,16 @@ const clearGrid = function(){
     });
 }
 
+const toggleGrid = function(){
+    const squares = document.querySelectorAll(".square");
+    squares.forEach(square => {
+        square.classList.toggle("temp-border");
+    });
+}
+
 const enableCustomization = function(){
     const sizeBtn = document.querySelector('.size-btn');
+    const showBtn = document.querySelector('.show-btn');
     let colorPicker = document.getElementById('color');
     const rainbowBtn = document.querySelector('.rainbow-btn');
     const clearBtn = document.querySelector('.clear-btn');
@@ -98,6 +106,7 @@ const enableCustomization = function(){
     sizeBtn.addEventListener('click', resizeGrid);
     clearBtn.addEventListener('click', clearGrid);
     
+    showBtn.addEventListener('click', toggleGrid);
     
     eraserBtn.addEventListener('click', () => {
         eraser = !eraser;
